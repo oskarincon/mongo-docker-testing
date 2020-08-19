@@ -1,0 +1,14 @@
+version: "3"
+services:
+  customerbd:
+    image: mongo:latest
+    container_name: "customerbd"
+    ports:
+      - 27017:27017
+  customer-app:
+    image: customer:1.0
+    container_name: customer-app
+    ports:
+     - 9090:8080
+    links:
+      - customerbd
